@@ -1,13 +1,14 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { onAuthStateChanged } from "firebase/auth";
 import Login from './Login'
 import {createBrowserRouter} from "react-router-dom"
 import Browse from './Browse'
 import { RouterProvider } from 'react-router-dom'
-import Header from './Header'
+
 
 const Body = () => {
-
+    
+    
     const appRouter=createBrowserRouter([
         {
         path:"/",
@@ -18,9 +19,11 @@ const Body = () => {
         element:<Browse/>,
     },]);
 
+    
+
   return (
     <div>
-        <Header/>
+        
         <RouterProvider router={appRouter}/>
     </div>
   )
