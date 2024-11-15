@@ -15,6 +15,24 @@
    -Update Profile
    -Bug Fix:Signup user display name
    -Bug Fix:if the user is not logged in then redirect to login/browse page and vice varsa.
+   -Unsubscribed to onauthstatechange callback
+   -added hardcoded values to constants
+   -Register TMDB api & create an app &get access token
+   -Get data from TMDB now playing movies list API
+   -Custom hook for now playing movies
+   -Create movieslice
+   -Update Store with movies data
+   -Planning for mainContainer & secondaryContainer
+   -fetch data for trailer video
+   -Update store with trailer video data
+   -Embedded the youtube video and makeit autoplay and mute
+   -Tailwind classes to make the main container awesome
+   -Build secondary component
+   -Build movie list
+   -Build movie card
+   -TMDB image CDN url
+   -made the browser page amazing with tailwind css
+   -usePoplar movies custom hook
    
 
 # features

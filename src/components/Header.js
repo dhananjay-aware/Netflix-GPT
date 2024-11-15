@@ -4,6 +4,7 @@ import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
+import { LOGO, user_avatar } from '../utils/constants';
 
 const Header = () => {
   const navigate=useNavigate();
@@ -18,7 +19,7 @@ const Header = () => {
     });
   }
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+    const unSubscribe =onAuthStateChanged(auth, (user) => {
         if (user) {             
           const {uid,email,displayName} = user;
           dispatch(addUser({uid:uid,email:email,displayName:displayName}));
@@ -30,15 +31,16 @@ const Header = () => {
           
         }
       });
+    return ()=>unSubscribe();
 },[])
   return (
-    <div className='absolute bg-gradient-to-b from-black w-screen z-10 flex justify-between'>
+    <div className='absolute bg-gradient-to-b from-black w-screen z-10 flex justify-between text-white'>
       <div>
-        <img className='w-48 px-4 py-2' src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png' alt='netflix logo'/>
+        <img className='w-48 px-4 py-2' src={LOGO} alt='netflix logo'/>
       </div>
 { user && <div className='mr-6 mt-2 flex'>
-        <button className='p-2 m-2' onClick={handleSignout}>⛔</button>
-        <img className='w-12 h-12 p-2 m-2' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ1ieB_9CnIZUK4wVSheXTxpRJkWbIRy2Z7A&s'alt='userIcon'/>
+        <button className='p-2 m-2' onClick={handleSignout}>Sign Out</button>
+        <img className='w-12 h-12 p-2 m-2' src={user_avatar}alt='userIcon'/>
       </div>}
     </div>
   )

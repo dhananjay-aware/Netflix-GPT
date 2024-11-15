@@ -4,6 +4,7 @@ import Login from './Login'
 import {createBrowserRouter} from "react-router-dom"
 import Browse from './Browse'
 import { RouterProvider } from 'react-router-dom'
+import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
 
 
 const Body = () => {
@@ -19,7 +20,7 @@ const Body = () => {
         element:<Browse/>,
     },]);
 
-    
+    //useNowPlayingMovies();
 
   return (
     <div>

@@ -2,10 +2,10 @@ import React, { useRef, useState } from 'react'
 import { validateData } from '../utils/Validate';
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
-
 import Header from './Header'
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { bg_img } from '../utils/constants';
 
 
 
@@ -32,7 +32,7 @@ const Login = () => {
             signInWithEmailAndPassword(auth,email.current.value,password.current.value)
             .then((userCredential) => {
             // Signed in 
-                const user = userCredential.user;
+              const user = userCredential.user;
                 
             })
             .catch((error) => {
@@ -74,7 +74,7 @@ const Login = () => {
     <div>
         <Header/>
     <div className='absolute'>
-        <img src='https://assets.nflxext.com/ffe/siteui/vlv3/151f3e1e-b2c9-4626-afcd-6b39d0b2694f/web/IN-en-20241028-TRIFECTA-perspective_bce9a321-39cb-4cce-8ba6-02dab4c72e53_small.jpg' alt='bg-img'/>
+        <img src={bg_img} alt='bg-img'/>
     </div>
     <form onSubmit={(e)=>e.preventDefault()} className='absolute bg-black bg-opacity-80 text-white w-3/12 p-12  my-36 mx-auto right-0 left-0 rounded-lg'>
         <h1 className='text-3xl font-bold'>{isSignIn?"Sign In":"SignUp"}</h1>
