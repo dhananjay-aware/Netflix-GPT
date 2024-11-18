@@ -33,6 +33,10 @@
    -TMDB image CDN url
    -made the browser page amazing with tailwind css
    -usePoplar movies custom hook
+   -GPT search page
+   -GPT search bar
+   -multi-language feature in search GPT page
+   
    
 
 # features

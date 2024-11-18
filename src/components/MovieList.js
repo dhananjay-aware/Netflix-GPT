@@ -3,7 +3,7 @@ import Moviecart from './Moviecart'
 
 const MovieList = ({title,movies}) => {
 
-    console.log(movies);
+   // console.log(movies);
   return (
     <div>
       <h1 className='py-2 text-3xl text-white'>{title}</h1>
