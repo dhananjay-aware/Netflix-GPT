@@ -39,7 +39,7 @@ const Header = () => {
 
  const toggleGpt=()=>{
     dispatch(toggleShowGptStatus());
-    console.log("toggleGpt");
+    
  }
 
  const handleLangChange=(e)=>{
