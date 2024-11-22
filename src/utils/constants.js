@@ -25,4 +25,4 @@ export const SUPPORTED_LANGUAGES=[{
 }
 ]
 
-export const API_KEY="AAIzaSyA70gW5mJBdcPc16vRSwjAoHPi3fuVdU2I";
+export const API_KEY="AIzaSyA70gW5mJBdcPc16vRSwjAoHPi3fuVdU2I";

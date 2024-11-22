@@ -5,17 +5,22 @@ import lang from '../utils/language_constants'
 import genAI from '../utils/genai'
 import { API_OPTIONS } from '../utils/constants'
 import { addGptMovieResult } from '../utils/gptSlice'
+import { HarmBlockThreshold, HarmCategory } from '@google/generative-ai'
 
 const GptSearchBar = () => {
   const choosenlang=useSelector(store=>store.languageChange.lang)
   const dispatch=useDispatch();
   const searchText=useRef();
-  const safe = {
-    "HARM_CATEGORY_HARASSMENT": "BLOCK_NONE",
-    "HARM_CATEGORY_HATE_SPEECH": "BLOCK_NONE",
-    "HARM_CATEGORY_SEXUALLY_EXPLICIT": "BLOCK_NONE",
-    "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_NONE",
-    };
+  const safe = [
+    {
+      category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+      threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
+    },
+    {
+      category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+      threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
+    },
+  ];
     
 
 
@@ -43,8 +48,8 @@ const GptSearchBar = () => {
 
 
   return (
-    <div className='pt-[10%] flex justify-center'>
-        <form className='w-1/2 bg-black grid grid-cols-12' onSubmit={(e)=>e.preventDefault()}>
+    <div className='pt-[35%] md:pt-[10%] flex justify-center'>
+        <form className='w-full md:w-1/2 bg-black grid grid-cols-12' onSubmit={(e)=>e.preventDefault()}>
             <input type='text' ref={searchText} placeholder={lang[choosenlang].gptSearchPlaceholder} className='p-4 m-4 col-span-9' />
             <button className='py-2 px-4 col-span-3 rounded-lg m-4 bg-red-700 text-white' onClick={handleSearch}>{lang[choosenlang].search}</button>
         </form>

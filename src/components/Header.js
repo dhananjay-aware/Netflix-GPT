@@ -47,9 +47,9 @@ const Header = () => {
  }
 
   return (
-    <div className='absolute bg-gradient-to-b from-black w-screen z-10 flex justify-between text-white'>
+    <div className='absolute bg-gradient-to-b from-black w-screen z-10 flex flex-col md:flex-row justify-between text-white'>
       <div>
-        <img className='w-48 px-4 py-2' src={LOGO} alt='netflix logo'/>
+        <img className='w-48 px-4 py-2 mx-auto md:mx-0'  src={LOGO} alt='netflix logo'/>
       </div>
 { user && <div className='mr-6 mt-2 flex'>
         

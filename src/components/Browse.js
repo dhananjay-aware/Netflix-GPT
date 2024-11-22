@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 
 const Browse = () => {
   const showGpt=useSelector(store=>store.gpt.showGptStatus);
+  
   //console.log("broswer executed");
   useNowPlayingMovies();
   usePopularMovies();
